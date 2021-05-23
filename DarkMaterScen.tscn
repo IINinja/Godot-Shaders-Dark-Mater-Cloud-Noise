@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://DarkMater.shader" type="Shader" id=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+period = 11.6
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[sub_resource type="OpenSimplexNoise" id=3]
+period = 27.1
+
+[sub_resource type="NoiseTexture" id=4]
+seamless = true
+noise = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 2 )
+shader_param/scroll1 = Vector2( 0.1, -0.2 )
+shader_param/scroll2 = Vector2( 0.1, -0.8 )
+shader_param/noise1 = SubResource( 2 )
+shader_param/noise2 = SubResource( 4 )
+
+[node name="DarkMater" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 5 )
+margin_right = 1289.0
+margin_bottom = 734.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
